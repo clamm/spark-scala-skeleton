@@ -1,0 +1,29 @@
+<configuration debug="false">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS} %highlight(%-5level) %X{akkaSource} %gray(%logger{90}) %X{X-ApplicationId} %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.spark-project.jetty" level="WARN"/>
+    <logger name="org.apache.spark.util" level="WARN"/>
+    <logger name="io.netty" level="WARN"/>
+    <logger name="org.apache.spark" level="DEBUG"/>
+    <logger name="org.apache.spark.storage" level="WARN"/>
+    <logger name="org.apache.spark.scheduler" level="WARN"/>
+    <logger name="org.apache.hadoop" level="WARN"/>
+    <logger name="org.apache.spark.ui" level="WARN" />
+    <logger name="org.apache.spark.sql.catalyst.expressions.codegen" level="WARN"/>
+    <logger name="org.apache.spark.deploy.SparkHadoopUtil" level="INFO"/>
+    <logger name="org.apache.spark.memory" level="WARN" />
+    <logger name="org.apache.spark" level="WARN"/>
+    <logger name="org.jets3t" level="WARN"/>
+    <logger name="httpclient" level="WARN"/>
+    <logger name="org.apache.commons" level="WARN"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
