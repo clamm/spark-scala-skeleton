@@ -1,8 +1,9 @@
 import sbt.Build
 import sbt._
 import sbt.Keys._
+import com.typesafe.sbt.packager.archetypes.JavaAppPackaging
 
-object Build extends Build {
+object SkeletonBuild extends Build {
 
   lazy val commonSettings = Seq(
     scalaVersion := "2.11.7",
@@ -29,7 +30,7 @@ object Build extends Build {
     id = "skeleton",
     base = file("."),
     settings = Defaults.coreDefaultSettings ++ commonSettings
-  )
+  ).enablePlugins(JavaAppPackaging)
 
   lazy val sparkVersion = "1.6.0"
 

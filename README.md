@@ -93,6 +93,9 @@ compile
 reStart
 ```
 
+Note: Since `reStart` forks a jvm, the logging in sbt is indicating errors, when in fact 
+the messages are just on stdout of the forked process. 
+
 When that worked as expected, you can now start implementing the Spark job(s) you want. To run them just do again 
 ```
 sbt
@@ -101,3 +104,13 @@ reStart
 ```
 
 While the Spark job runs you can check it at [http://localhost:4040](http://localhost:4040).
+
+
+### Packaging the job 
+
+Using the plugin [sbt-native-packager](https://github.com/sbt/sbt-native-packager) you can run the command 
+`stage` in sbt to create a packaged jar and a shell script to run the job outside sbt (and without the messages
+indicated on ERROR level): 
+```
+target/universal/stage/bin/skeleton
+```
